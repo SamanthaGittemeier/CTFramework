@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/CinemachineRecording.unity
+    guid: 85d64b04ae57638418ce37dfb32c7f11
   m_configObjects: {}
