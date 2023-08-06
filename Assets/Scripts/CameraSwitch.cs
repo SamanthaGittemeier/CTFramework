@@ -19,6 +19,8 @@ public class CameraSwitch : MonoBehaviour
     private float _inputTimer;
     [SerializeField]
     private float _idleTimer;
+    [SerializeField]
+    private float _camRotateSpeed;
 
     [SerializeField]
     private int _currentCam;
@@ -37,11 +39,11 @@ public class CameraSwitch : MonoBehaviour
         _external3rdPerson.Priority = 10;
         _povCockpit.Priority = 11;
         _ship = GameObject.Find("Ship");
-        _ship.SetActive(false);
         _cinematicShot = GameObject.Find("Cinematic Shot").GetComponent<CinemachineBlendListCamera>();
         _cinematicShot.Priority = 9;
         _idleTimer = 5;
         _previousMousePosition = Input.mousePosition;
+        _ship.SetActive(false);
     }
 
     // Update is called once per frame
@@ -80,7 +82,7 @@ public class CameraSwitch : MonoBehaviour
 
     private void InitiateCinematicShot()
     {
-        if (Input.GetKeyUp(KeyCode.R) || Input.mousePosition == _previousMousePosition)
+        if (Input.GetKeyUp(KeyCode.R) || Input.mousePosition == _previousMousePosition || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
         {
             _inputGiven = false;
             _inputTimer += Time.deltaTime;
@@ -109,5 +111,10 @@ public class CameraSwitch : MonoBehaviour
                 _ship.SetActive(true);
             }
         }
+    }
+
+    public void InputGivenFromMovement(bool shipMoved)
+    {
+        _inputGiven = shipMoved;
     }
 }
