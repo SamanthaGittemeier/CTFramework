@@ -11,9 +11,15 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _shipXGain;
     [SerializeField]
+    private float _camXGain;
+    [SerializeField]
     private float _shipYGain;
     [SerializeField]
+    private float _camYGain;
+    [SerializeField]
     private float _shipZGain;
+    [SerializeField]
+    private float _camZGain;
     [SerializeField]
     private float _shipXChangeAmount;
     [SerializeField]
@@ -22,26 +28,18 @@ public class Player : MonoBehaviour
     private float _shipZChangeAmount;
 
     [SerializeField]
-    private GameObject _ship;
-    [SerializeField]
-    private GameObject _camera;
+    private GameObject _cockpitCam;
 
     [SerializeField]
-    private CameraSwitch _camSwitcher;
-
+    private Vector3 _cockpitCamOffset;
     [SerializeField]
-    private bool _shipMoved;
-
-    [SerializeField]
-    private Vector3 _cockpitPOVOffset;
+    private Vector3 lookWithShip;
 
     void Start()
     {
         _forwardSpeed = 3;
         _shipRotateSpeed = 15;
-        _ship = GameObject.Find("Ship");
-        _camera = GameObject.Find("Cockpit-POV");
-        _camSwitcher = GameObject.Find("Camera Switch").GetComponent<CameraSwitch>();
+        _cockpitCam = GameObject.Find("Cockpit-POV");
     }
 
     void Update()
@@ -51,53 +49,38 @@ public class Player : MonoBehaviour
 
     private void MoveShipAndCameras()
     {
-        _camera.transform.position = transform.position + _cockpitPOVOffset;
-        _camera.transform.rotation = transform.rotation;
         if (Input.GetKey(KeyCode.W))
         {
-            _shipMoved = true;
-            _camSwitcher.InputGivenFromMovement(_shipMoved);
-            _shipXGain += _shipXChangeAmount;
-            Quaternion shipXRot = Quaternion.Euler(_shipXGain, _shipYGain, _shipZGain);
-            transform.rotation = Quaternion.Slerp(transform.rotation, shipXRot, _shipRotateSpeed);
+            _shipXGain -= _shipXChangeAmount;
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            _shipMoved = true;
-            _camSwitcher.InputGivenFromMovement(_shipMoved);
-            _shipXGain -= _shipXChangeAmount;
-            Quaternion shipXRot = Quaternion.Euler(_shipXGain, _shipYGain, _shipZGain);
-            transform.rotation = Quaternion.Slerp(transform.rotation, shipXRot, _shipRotateSpeed);
+            _shipXGain += _shipXChangeAmount;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            _shipMoved = true;
-            _camSwitcher.InputGivenFromMovement(_shipMoved);
             _shipZGain -= _shipZChangeAmount;
             if (_shipZGain <= -5)
             {
                 _shipZGain = -5;
             }
             _shipYGain += _shipYChangeAmount;
-            Quaternion shipYRot = Quaternion.Euler(_shipXGain, _shipYGain, _shipZGain);
-            transform.rotation = Quaternion.Slerp(transform.rotation, shipYRot, _shipRotateSpeed);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            _shipMoved = true;
-            _camSwitcher.InputGivenFromMovement(_shipMoved);
             _shipZGain += _shipZChangeAmount;
             if (_shipZGain >= 5)
             {
                 _shipZGain = 5;
             }
             _shipYGain -= _shipYChangeAmount;
-            Quaternion shipYRot = Quaternion.Euler(_shipXGain, _shipYGain, _shipZGain);
-            transform.rotation = Quaternion.Slerp(transform.rotation, shipYRot, _shipRotateSpeed);
         }
+        Quaternion shipRot = Quaternion.Euler(_shipXGain, _shipYGain, _shipZGain);
+        transform.rotation = Quaternion.Slerp(transform.rotation, shipRot, _shipRotateSpeed);
         transform.Translate(transform.forward * _forwardSpeed * Time.deltaTime);
+        _cockpitCam.transform.Translate(transform.forward * _forwardSpeed * Time.deltaTime);
     }
 }
