@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    private float _shipRotateSpeed;
+    private float _rotateSpeed;
     [SerializeField]
     private float _forwardSpeed;
     [SerializeField]
@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
         }
 
         _playerRotation = Quaternion.Euler(_xGain, _yGain, 0);
-        transform.rotation = Quaternion.Slerp(transform.rotation, _playerRotation, _shipRotateSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, _playerRotation, _rotateSpeed);
         transform.Translate(Vector3.forward * _forwardSpeed * Time.deltaTime);
     }
 }
