@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Playables;
 
 public class CameraSwitch : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class CameraSwitch : MonoBehaviour
     private float _inputTimer;
     [SerializeField]
     private float _idleTimer;
+    [SerializeField]
+    private float _introCutSceneTime;
 
     [SerializeField]
     private int _currentCam;
@@ -28,6 +31,9 @@ public class CameraSwitch : MonoBehaviour
 
     [SerializeField]
     private Vector3 _previousMousePosition;
+
+    [SerializeField]
+    private PlayableDirector _introSceneDirector;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +48,7 @@ public class CameraSwitch : MonoBehaviour
         _idleTimer = 5;
         _previousMousePosition = Input.mousePosition;
         _ship.SetActive(false);
+        _introSceneDirector = GameObject.Find("IntroCutScene").GetComponent<PlayableDirector>();
     }
 
     // Update is called once per frame
@@ -58,8 +65,6 @@ public class CameraSwitch : MonoBehaviour
         {
             if (_external3rdPerson.Priority == 11)
             {
-                _inputGiven = true;
-                _inputTimer = 0;
                 _ship.SetActive(false);
                 _currentCam = 0;
                 _povCockpit.Priority = 11;
@@ -68,8 +73,6 @@ public class CameraSwitch : MonoBehaviour
             }
             else if (_povCockpit.Priority == 11)
             {
-                _inputGiven = true;
-                _inputTimer = 0;
                 _ship.SetActive(true);
                 _currentCam = 1;
                 _external3rdPerson.Priority = 11;
@@ -81,7 +84,7 @@ public class CameraSwitch : MonoBehaviour
 
     private void CheckForInput()
     {
-        if (Input.GetKeyDown(KeyCode.R) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.T) || Input.GetKey(KeyCode.G) || Input.mousePosition != _previousMousePosition)
+        if (Input.GetKeyDown(KeyCode.R) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.T) || Input.GetKey(KeyCode.G) || Input.mousePosition != _previousMousePosition || _introSceneDirector.time < _introCutSceneTime)
         {
             _inputGiven = true;
             _inputTimer = 0;

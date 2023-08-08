@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Playables;
+using UnityEngine.Playables;
 
 public class Player : MonoBehaviour
 {
@@ -28,11 +28,12 @@ public class Player : MonoBehaviour
     private Quaternion _playerRotation;
 
     [SerializeField]
-    //Timeline
+    private PlayableDirector _introCutSceneDirector;
 
     void Start()
     {
         _forwardSpeed = _defaultForwardSpeed;
+        _introCutSceneDirector = GameObject.Find("IntroCutScene").GetComponent<PlayableDirector>();
     }
 
     void Update()
@@ -42,39 +43,42 @@ public class Player : MonoBehaviour
 
     private void MovePlayer()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (_introCutSceneDirector.time >= _introCutSceneTime)
         {
-            _xGain -= _xChangeAmount;
-        }
+            if (Input.GetKey(KeyCode.W))
+            {
+                _xGain -= _xChangeAmount;
+            }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            _xGain += _xChangeAmount;
-        }
+            if (Input.GetKey(KeyCode.S))
+            {
+                _xGain += _xChangeAmount;
+            }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            _yGain += _yChangeAmount;
-        }
+            if (Input.GetKey(KeyCode.D))
+            {
+                _yGain += _yChangeAmount;
+            }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            _yGain -= _yChangeAmount;
-        }
+            if (Input.GetKey(KeyCode.A))
+            {
+                _yGain -= _yChangeAmount;
+            }
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            _forwardSpeed += _speedChange;
-        }
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                _forwardSpeed += _speedChange;
+            }
 
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            _forwardSpeed -= _speedChange;
-        }
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                _forwardSpeed -= _speedChange;
+            }
 
-        if (Input.GetKeyUp(KeyCode.T) || Input.GetKeyUp(KeyCode.G))
-        {
-            _forwardSpeed = _defaultForwardSpeed;
+            if (Input.GetKeyUp(KeyCode.T) || Input.GetKeyUp(KeyCode.G))
+            {
+                _forwardSpeed = _defaultForwardSpeed;
+            }
         }
 
         _playerRotation = Quaternion.Euler(_xGain, _yGain, 0);
