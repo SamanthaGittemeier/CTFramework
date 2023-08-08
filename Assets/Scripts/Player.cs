@@ -31,10 +31,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        MoveShipAndCameras();
+        MovePlayer();
     }
 
-    private void MoveShipAndCameras()
+    private void MovePlayer()
     {
         if (Input.GetKey(KeyCode.W))
         {
