@@ -9,39 +9,24 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _forwardSpeed;
     [SerializeField]
+    private float _defaultForwardSpeed;
+    [SerializeField]
+    private float _speedChange;
+    [SerializeField]
     private float _shipXGain;
     [SerializeField]
     private float _shipYGain;
     [SerializeField]
-    private float _shipZGain;
-    [SerializeField]
     private float _shipXChangeAmount;
     [SerializeField]
     private float _shipYChangeAmount;
-    [SerializeField]
-    private float _shipZChangeAmount;
-    [SerializeField]
-    private float _zDiff;
-
-    [SerializeField]
-    private GameObject _cockpitCam;
-
-    [SerializeField]
-    private Vector3 _cockpitCamOffset;
-    [SerializeField]
-    private Vector3 lookWithShip;
 
     [SerializeField]
     private Quaternion _shipRot;
 
-    [SerializeField]
-    private bool _keyUp;
-
     void Start()
     {
-        _forwardSpeed = 3;
-        _shipRotateSpeed = 15;
-        _cockpitCam = GameObject.Find("Cockpit-POV");
+        _forwardSpeed = _defaultForwardSpeed;
     }
 
     void Update()
@@ -63,27 +48,31 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
-            //_shipZGain -= _shipZChangeAmount;
-            //if (_shipZGain <= -5)
-            //{
-            //    _shipZGain = -5;
-            //}
             _shipYGain += _shipYChangeAmount;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            //_shipZGain += _shipZChangeAmount;
-            //if (_shipZGain >= 5)
-            //{
-            //    _shipZGain = 5;
-            //}
             _shipYGain -= _shipYChangeAmount;
         }
 
-        _shipRot = Quaternion.Euler(_shipXGain, _shipYGain, _shipZGain);
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            _forwardSpeed += _speedChange;
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            _forwardSpeed -= _speedChange;
+        }
+
+        if (Input.GetKeyUp(KeyCode.T) || Input.GetKeyUp(KeyCode.G))
+        {
+            _forwardSpeed = _defaultForwardSpeed;
+        }
+
+        _shipRot = Quaternion.Euler(_shipXGain, _shipYGain, 0);
         transform.rotation = Quaternion.Slerp(transform.rotation, _shipRot, _shipRotateSpeed);
         transform.Translate(Vector3.forward * _forwardSpeed * Time.deltaTime);
-        _cockpitCam.transform.Translate(transform.forward * _forwardSpeed * Time.deltaTime);
     }
 }

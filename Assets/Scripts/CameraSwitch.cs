@@ -19,8 +19,6 @@ public class CameraSwitch : MonoBehaviour
     private float _inputTimer;
     [SerializeField]
     private float _idleTimer;
-    [SerializeField]
-    private float _camRotateSpeed;
 
     [SerializeField]
     private int _currentCam;
@@ -50,6 +48,7 @@ public class CameraSwitch : MonoBehaviour
     void Update()
     {
         SwitchCameras();
+        CheckForInput();
         InitiateCinematicShot();
     }
 
@@ -80,19 +79,9 @@ public class CameraSwitch : MonoBehaviour
         }
     }
 
-    private void InitiateCinematicShot()
+    private void CheckForInput()
     {
-        if (Input.GetKeyUp(KeyCode.R) || Input.mousePosition == _previousMousePosition || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
-        {
-            _inputGiven = false;
-            _inputTimer += Time.deltaTime;
-            if (_inputTimer >= _idleTimer && _inputGiven == false)
-            {
-                _cinematicShot.Priority = 12;
-                _ship.SetActive(true);
-            }
-        }
-        else if (Input.mousePosition != _previousMousePosition)
+        if (Input.GetKeyDown(KeyCode.R) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.T) || Input.GetKey(KeyCode.G) || Input.mousePosition != _previousMousePosition)
         {
             _inputGiven = true;
             _inputTimer = 0;
@@ -113,8 +102,17 @@ public class CameraSwitch : MonoBehaviour
         }
     }
 
-    public void InputGivenFromMovement(bool shipMoved)
+    private void InitiateCinematicShot()
     {
-        _inputGiven = shipMoved;
+        if (Input.GetKeyUp(KeyCode.R) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.T) || Input.GetKeyUp(KeyCode.G) || Input.mousePosition == _previousMousePosition)
+        {
+            _inputGiven = false;
+            _inputTimer += Time.deltaTime;
+            if (_inputTimer >= _idleTimer && _inputGiven == false)
+            {
+                _cinematicShot.Priority = 12;
+                _ship.SetActive(true);
+            }
+        }
     }
 }

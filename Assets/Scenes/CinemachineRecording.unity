@@ -251,103 +251,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &83084334
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 83084338}
-  - component: {fileID: 83084337}
-  - component: {fileID: 83084336}
-  - component: {fileID: 83084335}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &83084335
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83084334}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &83084336
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83084334}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &83084337
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83084334}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &83084338
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83084334}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 21}
-  m_LocalScale: {x: 10, y: 10, z: 10}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &107964030
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +492,7 @@ Transform:
   - {fileID: 430751902}
   - {fileID: 1536783649}
   m_Father: {fileID: 1641299920}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &430751899
 GameObject:
@@ -742,15 +645,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468796588}
-  m_LocalRotation: {x: 0.061706815, y: -0.2974384, z: 0.019268254, w: 0.95255}
-  m_LocalPosition: {x: 5.5215445, y: 0.94692683, z: -2.2936969}
+  m_LocalRotation: {x: 0.061706815, y: -0.2974384, z: 0.019268252, w: 0.95255}
+  m_LocalPosition: {x: 5.5215445, y: 0.94692683, z: -2.2936978}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1964462087}
   m_Father: {fileID: 237221626}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 7.413, y: -90, z: -79.438}
 --- !u!1001 &512356509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1105,7 +1008,7 @@ Transform:
   m_Children:
   - {fileID: 1725942316}
   m_Father: {fileID: 1641299920}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 1.547, y: 1.1, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -1713,7 +1616,7 @@ MonoBehaviour:
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
     inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    width: 0.2
+    width: 1
   m_Looped: 1
   m_Waypoints:
   - position: {x: 0, y: 0, z: -5}
@@ -1732,12 +1635,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953184782}
   m_LocalRotation: {x: -0.004392162, y: 0.032642096, z: -0.0032563303, w: 0.9994522}
-  m_LocalPosition: {x: 0.2895813, y: 0.82730865, z: -2.5154383}
+  m_LocalPosition: {x: 0.28958136, y: 0.8273088, z: -2.5154388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1641299920}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -2461,7 +2364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1248871315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2661,20 +2564,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bc240402b42754478d70b0044ffea6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shipRotateSpeed: 0
+  _shipRotateSpeed: 15
   _forwardSpeed: 0
+  _defaultForwardSpeed: 0
+  _speedChange: 2
   _shipXGain: 0
   _shipYGain: 0
-  _shipZGain: 0
-  _shipXChangeAmount: 0.35
-  _shipYChangeAmount: 0.35
-  _shipZChangeAmount: 0.35
-  _zDiff: 0
-  _cockpitCam: {fileID: 0}
-  _cockpitCamOffset: {x: 0, y: 0.35, z: 0}
-  lookWithShip: {x: 0, y: 0, z: 0}
+  _shipXChangeAmount: 1
+  _shipYChangeAmount: 1
   _shipRot: {x: 0, y: 0, z: 0, w: 0}
-  _keyUp: 0
 --- !u!1 &1410156558
 GameObject:
   m_ObjectHideFlags: 3
@@ -3458,10 +3356,10 @@ Transform:
   m_LocalScale: {x: 133.33334, y: 133.33334, z: 133.33334}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 953184784}
-  - {fileID: 2123933937}
   - {fileID: 237221626}
   - {fileID: 665942839}
+  - {fileID: 953184784}
+  - {fileID: 2123933937}
   m_Father: {fileID: 138809530}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3592,9 +3490,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_ShowDebugText: 0
   m_Loop: 0
-  m_ChildCameras:
-  - {fileID: 1590332160}
-  - {fileID: 1595798453}
+  m_ChildCameras: []
   m_Instructions:
   - m_VirtualCamera: {fileID: 1590332160}
     m_Hold: 2
@@ -3786,8 +3682,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933362091}
-  m_LocalRotation: {x: -0.08767296, y: 0.0059121125, z: 0.0005203452, w: 0.99613166}
-  m_LocalPosition: {x: -0.98737705, y: -1.6509178, z: -9.202136}
+  m_LocalRotation: {x: -0.004862864, y: 0.0050700908, z: 0.00002465577, w: 0.9999753}
+  m_LocalPosition: {x: -0.97291434, y: 0.36032626, z: -9.828092}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3898,13 +3794,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 953184783}
-  m_PathPosition: 3.032658
+  m_PathPosition: 0
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0.5, z: -5.5}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 1
-  m_CameraUp: 0
+  m_CameraUp: 3
   m_PitchDamping: 0
   m_YawDamping: 0
   m_RollDamping: 0
@@ -4179,7 +4075,6 @@ MonoBehaviour:
   _ship: {fileID: 0}
   _inputTimer: 0
   _idleTimer: 0
-  _camRotateSpeed: 0
   _currentCam: 0
   _inputGiven: 0
   _previousMousePosition: {x: 0, y: 0, z: 0}
@@ -4225,13 +4120,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123933935}
   m_LocalRotation: {x: -0.0054092724, y: -0.682751, z: 0.00079658383, w: 0.7306307}
-  m_LocalPosition: {x: -0.03680387, y: 0.7844741, z: -7.5045905}
+  m_LocalPosition: {x: -0.036803808, y: 0.7844742, z: -7.5045905}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1641299920}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: -0.391, y: -90, z: 0.49}
 --- !u!1 &2144872095
 GameObject:
   m_ObjectHideFlags: 3
