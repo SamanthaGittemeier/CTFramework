@@ -13,16 +13,16 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _speedChange;
     [SerializeField]
-    private float _shipXGain;
+    private float _xGain;
     [SerializeField]
-    private float _shipYGain;
+    private float _yGain;
     [SerializeField]
-    private float _shipXChangeAmount;
+    private float _xChangeAmount;
     [SerializeField]
-    private float _shipYChangeAmount;
+    private float _yChangeAmount;
 
     [SerializeField]
-    private Quaternion _shipRot;
+    private Quaternion _playerRotation;
 
     void Start()
     {
@@ -38,22 +38,22 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            _shipXGain -= _shipXChangeAmount;
+            _xGain -= _xChangeAmount;
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            _shipXGain += _shipXChangeAmount;
+            _xGain += _xChangeAmount;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            _shipYGain += _shipYChangeAmount;
+            _yGain += _yChangeAmount;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            _shipYGain -= _shipYChangeAmount;
+            _yGain -= _yChangeAmount;
         }
 
         if (Input.GetKeyDown(KeyCode.T))
@@ -71,8 +71,8 @@ public class Player : MonoBehaviour
             _forwardSpeed = _defaultForwardSpeed;
         }
 
-        _shipRot = Quaternion.Euler(_shipXGain, _shipYGain, 0);
-        transform.rotation = Quaternion.Slerp(transform.rotation, _shipRot, _shipRotateSpeed);
+        _playerRotation = Quaternion.Euler(_xGain, _yGain, 0);
+        transform.rotation = Quaternion.Slerp(transform.rotation, _playerRotation, _shipRotateSpeed);
         transform.Translate(Vector3.forward * _forwardSpeed * Time.deltaTime);
     }
 }
