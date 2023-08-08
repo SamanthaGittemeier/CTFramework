@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Playables;
 
 public class Player : MonoBehaviour
 {
@@ -20,9 +21,14 @@ public class Player : MonoBehaviour
     private float _xChangeAmount;
     [SerializeField]
     private float _yChangeAmount;
+    [SerializeField]
+    private float _introCutSceneTime;
 
     [SerializeField]
     private Quaternion _playerRotation;
+
+    [SerializeField]
+    //Timeline
 
     void Start()
     {
