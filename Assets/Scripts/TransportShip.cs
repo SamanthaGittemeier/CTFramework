@@ -9,19 +9,12 @@ public class TransportShip : MonoBehaviour
     [SerializeField]
     private GameObject _restartButton;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         _endDirector = GameObject.Find("EndCutScene");
         _endDirector.SetActive(false);
         _restartButton = GameObject.Find("RestartButton");
         _restartButton.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter(Collider other)
