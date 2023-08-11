@@ -15215,14 +15215,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bc240402b42754478d70b0044ffea6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotateSpeed: 5
+  _rotateSpeed: 1
   _forwardSpeed: 0
   _defaultForwardSpeed: 5
   _speedChange: 2
   _xGain: 0
   _yGain: 0
-  _xChangeAmount: 1
-  _yChangeAmount: 1
+  _xChangeAmount: 0.1
+  _yChangeAmount: 0.1
   _introCutSceneTime: 6.01
   _playerRotation: {x: 0, y: 0, z: 0, w: 0}
   _introCutSceneDirector: {fileID: 0}
@@ -16560,7 +16560,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933362091}
-  m_LocalRotation: {x: -0.0048628645, y: 0.0050700908, z: 0.00002465577, w: 0.9999753}
+  m_LocalRotation: {x: -0.004862844, y: 0.005070125, z: 0.000024655836, w: 0.9999753}
   m_LocalPosition: {x: -0.97291434, y: 0.36032626, z: -9.828092}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
